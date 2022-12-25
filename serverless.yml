@@ -1,0 +1,43 @@
+# org: wilmarux
+# app: serverless-ssm-01
+service: serverless-ssm-01
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: us-west-1
+
+plugins:
+  - serverless-dotenv-plugin
+
+functions:
+  createParameter:
+    handler: handler.handler2
+    # iamRoleStatements:
+    #   - Effect: Allow
+    #     Action:
+    #       - ssm:GetParameters
+    #       - ssm:GetParameter*
+    #       - ssm:GetParametersByPath
+    #     Resource: "arn:aws:ssm:us-west-1:711459267474:parameter/my-service/my-parameter/"
+    #     # Resource: ["*"] 
+    environment:
+      myPage: ${ssm:/myapp/dev/pageUrl}
+    events:
+      - http:
+          path: /create-parameter
+          method: post
+          cors: true
+
+resources:
+  Resources:
+    MyParameter:
+      Type: AWS::SSM::Parameter
+      Properties:
+        Name: /my-service/my-parameter
+        Type: String
+        Value: my-parameter-value
+
+
