@@ -1,72 +1,21 @@
-<!--
-title: 'AWS NodeJS Example'
-description: 'This template demonstrates how to deploy a NodeJS function running on AWS Lambda using the traditional Serverless Framework.'
-layout: Doc
-framework: v3
-platform: AWS
-language: nodeJS
-priority: 1
-authorLink: 'https://github.com/serverless'
-authorName: 'Serverless, inc.'
-authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
--->
+# Bienvenidos al repositorio de Serverless Read Parameter Store AWS 🚀
 
+Este repositorio es un ejemplo de cómo usar Serverless para leer valores de AWS Parameter Store. AWS Parameter Store es un servicio de almacenamiento de valores (pueden cifrarse tambien) y configuraciones que puede usar para almacenar y administrar información sensible de manera segura.
 
-# Serverless Framework AWS NodeJS Example
+## ¿Por qué usar este repositorio?
 
-This template demonstrates how to deploy a NodeJS function running on AWS Lambda using the traditional Serverless Framework. The deployed function does not include any event definitions as well as any kind of persistence (database). For more advanced configurations check out the [examples repo](https://github.com/serverless/examples/) which includes integrations with SQS, DynamoDB or examples of functions that are triggered in `cron`-like manner. For details about configuration of specific `events`, please refer to our [documentation](https://www.serverless.com/framework/docs/providers/aws/events/).
+- Muestra cómo usar Serverless para leer valores de AWS Parameter Store de manera sencilla y segura.
+- Incluye una plantilla de proyecto de ejemplo que puedes personalizar para adaptarla a tus necesidades.
+- Proporciona una guía paso a paso y recursos útiles para aprender más sobre AWS Parameter Store.
 
-## Usage
+## ¿Cómo empezar?
 
-### Deployment
+1. Clona este repositorio en tu máquina local.
+2. Sigue las instrucciones del archivo "README.md" para configurar tu entorno de desarrollo.
+3. Personaliza el código y la configuración de tu proyecto según tus necesidades.
+4. Usa la configuración del flujo de trabajo de GitHub Actions para implementar automáticamente tus cambios en AWS.
 
-In order to deploy the example, you need to run the following command:
+Si quieres aprender más sobre AWS Parameter Store, puedes consultar la [documentación oficial de AWS](https://aws.amazon.com/documentation/systems-manager/parameter-store/) o los [tutoriales en línea](https://aws.amazon.com/getting-started/hands-on/store-and-retrieve-parameters-with-systems-manager-parameter-store/).
 
-```
-$ serverless deploy
-```
+¡Esperamos que este repositorio te sea de utilidad! 😊🤓
 
-After running deploy, you should see output similar to:
-
-```bash
-Deploying aws-node-project to stage dev (us-east-1)
-
-✔ Service deployed to stack aws-node-project-dev (112s)
-
-functions:
-  hello: aws-node-project-dev-hello (1.5 kB)
-```
-
-### Invocation
-
-After successful deployment, you can invoke the deployed function by using the following command:
-
-```bash
-serverless invoke --function hello
-```
-
-Which should result in response similar to the following:
-
-```json
-{
-    "statusCode": 200,
-    "body": "{\n  \"message\": \"Go Serverless v3.0! Your function executed successfully!\",\n  \"input\": {}\n}"
-}
-```
-
-### Local development
-
-You can invoke your function locally by using the following command:
-
-```bash
-serverless invoke local --function hello
-```
-
-Which should result in response similar to the following:
-
-```
-{
-    "statusCode": 200,
-    "body": "{\n  \"message\": \"Go Serverless v3.0! Your function executed successfully!\",\n  \"input\": \"\"\n}"
-}
-```
